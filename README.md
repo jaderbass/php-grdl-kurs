@@ -22,13 +22,13 @@ Der Kurs ist in **3 Wochen** unterteilt und besteht aus Theorie, Praxisübunge
 Das Repository enthält die Materialien zu allen Wochen:
 
 ```txt
-Woche1/
+php_kurs_woche1/
   ├── PHP_Grundlagen_Woche1_Teilnehmerversion.md
   └── Materialien/
-Woche2/
+php_kurs_woche2/
   ├── PHP_Grundlagen_Woche2_Teilnehmerversion.md
   └── Materialien/
-Woche3/
+php_kurs_woche3/
   ├── PHP_Grundlagen_Woche3_Teilnehmerversion.md
   └── README.md
 ```
