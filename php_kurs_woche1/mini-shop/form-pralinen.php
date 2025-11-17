@@ -56,7 +56,7 @@ include_once 'artikel.inc.php';
 
         <tr>
           <td colspan="4">
-            <button style="margin-bottom:1rem;" type="submit">In den Warenkorb</button>
+            <button style="margin-bottom:1rem;" type="submit" name="pralinen">In den Warenkorb</button>
             <button type="reset">Abbrechen</button>
           </td>
         </tr>
