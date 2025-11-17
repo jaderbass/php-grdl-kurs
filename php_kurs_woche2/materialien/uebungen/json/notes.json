@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Test",
+    "content": "Hallo JSON!"
+  },
+  {
+    "title": "Dritter Eintrag",
+    "content": "Klassen können von Eltern-Klassen erben."
+  },
+  {
+    "title": "Vierter Eintrag",
+    "content": "Interfaces definieren Methoden, welche die abgeleiteten Klassen implementieren müssen."
+  }
+]

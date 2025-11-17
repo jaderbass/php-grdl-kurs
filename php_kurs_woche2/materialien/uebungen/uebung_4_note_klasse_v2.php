@@ -14,34 +14,27 @@ $path = __DIR__ . '/json/notes.json';
 
 // echo '<pre>', var_dump( json_decode((string)file_get_contents($path), false) ), '</pre>';
 
-$notes_array = [
-  new Note( 'Erster Eintrag', 'OOP macht PHP strukturierter' ),
-  new Note( 'Zweiter Eintrag', 'Klassen kapseln Daten & Verhalten.' )
-];
 $notes_object = json_decode((string)file_get_contents($path), false);
+$notes = [];
+foreach($notes_object as $n) {
+  array_push($notes, new Note($n->title, $n->content));
+}
 ?>
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Übung 4 – Note-Klasse</title>
+  <title>Übung 4 – Note-Klasse V2</title>
   <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-  <header><h1>Übung 4 – Note-Klasse</h1></header>
+  <header><h1>Übung 4 – Note-Klasse V2</h1></header>
   <main class="container">
-    <?php foreach($notes_array as $n): ?>
+    <?php foreach($notes as $n): ?>
       <article class="post">
         <h2><?= htmlspecialchars($n->getTitle()) ?></h2>
         <p><?= nl2br(htmlspecialchars($n->getContent())) ?></p>
-      </article>
-    <?php endforeach; ?>
-
-    <?php foreach($notes_object as $n): ?>
-      <article class="post">
-        <h2><?= htmlspecialchars($n->title) ?></h2>
-        <p><?= nl2br(htmlspecialchars($n->content)) ?></p>
       </article>
     <?php endforeach; ?>
   </main>
