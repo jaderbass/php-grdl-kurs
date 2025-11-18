@@ -4,11 +4,11 @@
     "content": "Hallo JSON!"
   },
   {
-    "title": "Dritter Eintrag",
+    "title": "Vererbung",
     "content": "Klassen können von Eltern-Klassen erben."
   },
   {
-    "title": "Vierter Eintrag",
+    "title": "Interfaces",
     "content": "Interfaces definieren Methoden, welche die abgeleiteten Klassen implementieren müssen."
   }
 ]
