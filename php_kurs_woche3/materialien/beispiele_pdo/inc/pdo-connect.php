@@ -1,11 +1,6 @@
 <?php
 declare(strict_types=1);
 
-const DB_USER = 'php_user';
-const DB_PASSWORD = 'qU2+8i2N&vNy_tA-)PRI]Te>';
-const DB_HOST = 'localhost';
-const DB_NAME = 'notizmanager';
-
 try {
   $pdo = new PDO('mysql:host='. DB_HOST .';dbname=' . DB_NAME . ';charset=utf8mb4',DB_USER , DB_PASSWORD, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
