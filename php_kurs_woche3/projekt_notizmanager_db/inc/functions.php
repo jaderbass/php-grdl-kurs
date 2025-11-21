@@ -66,3 +66,11 @@ function deleteCategory(PDO $pdo, int $id): void {
   $stmt = $pdo->prepare('DELETE FROM categories WHERE id=:id');
   $stmt->execute([':id'=>$id]);
 }
+
+function authenticate(PDO $pdo, string $username, string $password): bool {
+  $stmt = $pdo->prepare('SELECT id, password_hash FROM users WHERE username=:u');
+  $stmt->execute([':u'=> $username]);
+  $row = $stmt->fetch();
+  if(!$row) return false;
+  return password_verify($password, $row->password_hash);
+}
