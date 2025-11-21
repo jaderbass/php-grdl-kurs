@@ -24,7 +24,7 @@ $notes = getAllNotes($pdo);
     <div class="container">
       <h1>Notiz-Manager DB</h1>
       <div class="text-muted">
-        Manage User Login
+        Manage User Login | <a href="categ-manager.php">Kategorie-Manager</a>
       </div>
     </div>
   </header>
