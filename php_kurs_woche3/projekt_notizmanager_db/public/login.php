@@ -21,6 +21,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <main class="container">
+  <h2>Anmelden</h2>
+
   <?php if($error): ?>
     <p class="alert"><?= safe($error) ?></p>
   <?php endif; ?>
