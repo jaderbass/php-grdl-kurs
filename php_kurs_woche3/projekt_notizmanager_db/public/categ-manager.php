@@ -1,33 +1,8 @@
 <?php
-declare(strict_types=1);
-// ! die folgenden 2 Zeilen in der Produktiv-Variante löschen!
-error_reporting(E_ALL);
-ini_set('display_errors',true);
-
-session_start();
-
-require_once __DIR__ . '/../inc/db-connect.php';
-require_once __DIR__ . '/../inc/functions.php';
+include_once 'header.php';
 
 $categs = getAllCategories($pdo);
 ?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kategorie-Manager</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>Kategorie-Manager</h1>
-      <div class="text-muted">
-        Manage User Login | <a href="index.php">Notiz-Manager</a>
-      </div>
-    </div>
-  </header>
   <main class="container">
     <section class="card">
       <h2>Neue Kategorie</h2>
@@ -64,5 +39,4 @@ $categs = getAllCategories($pdo);
       </table>
     </section>
   </main>
-</body>
-</html>
+<?php include_once 'footer.php'; ?>
