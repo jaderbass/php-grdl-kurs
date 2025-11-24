@@ -98,11 +98,11 @@
   else                  echo 'Endet nicht mit: sich<br>';
 
   mb_ereg_search_init($tx, 'Gummibärchen.$');
-  if (mb_ereg_search())  echo 'Endet mit: Gummibärchen</p><p>';
-  else                  echo 'Endet nicht mit: Gummibärchen</p><p>';
+  if (mb_ereg_search())  echo 'Endet mit: Gummibärchen.</p><p>';
+  else                  echo 'Endet nicht mit: Gummibärchen.</p><p>';
 
-  echo mb_ereg_replace('das', 'xyz', $tx) . '<br>';
-  echo mb_eregi_replace('das', 'abc', $tx) . '</p>';
+  echo mb_ereg_replace('das', '<mark>xyz</mark>', $tx) . '<br>';
+  echo mb_eregi_replace('das', '<mark>abc</mark>', $tx) . '</p>';
   ?>
 
   <h2>Zeichenketten und Arrays</h2>

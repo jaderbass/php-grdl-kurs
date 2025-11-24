@@ -20,13 +20,13 @@
     printf('<p>Ausgabe Typ c: <b>%c</b></p>', 65);
     printf('<p>Ausgabe Typ d: <b>%d</b></p>', 3);
     printf('<p>Ausgabe Typ f: <b>%f</b></p>', 3.65);
-    printf('<p>Ausgabe Typ s: <b>%s</b> <i>%s</i></p>', 'Hallo', $text);
+    printf('<p>Ausgabe Typ s: <b>%s</b> <i>%s</i></p>', 'Hallo ', $text);
     printf('<p>Ausgabe Typ x: <b>%x</b></p>', 65);
 
 
     echo '<h2>Füllzeichen ausgeben</h2>';
     /* Füllzeichen ausgeben */
-    printf("<p>8 Zeichen aufgefüllt: <b>%-'*8s</b></p>", 'Hal');
+    printf("<p>8 Zeichen gefüllt: <b>%'*8s</b></p>", 'Hall');
 
     /* Füllzeichen für Floats */
     $zahl1 = 157.549862;
@@ -36,7 +36,7 @@
     printf('<p>4 Stellen: <b>%.4f</b></p>', $zahl1);
     printf('<p>Ganzzahl: <b>%.2f</b></p>', $zahl2);
     printf('<p>6 Zeichen: <b>%08.2f</b></p>', $zahl1);
-    printf("<p>10 Zeichen: <b>%'X10.3f</b></p>", $zahl1);
+    printf("<p>10 Zeichen: <b>%'X12.3f</b></p>", $zahl1);
 
     echo '<h2>Die Funktion <code>number_format()</code></h2>';
     /* Die Funktion number_format()
@@ -63,13 +63,13 @@
     echo "<p>Original-Zeichenkette: <b>$string</b></p>";
 
     /* Finde eine Zeichenkette */
-    echo "<p>strstr():<br>Suche nach B@ ergibt: " . strstr($string, 'B@');
+    echo "<p><code>strstr()</code>:<br>Suche nach B@ ergibt: " . strstr($string, 'B@');
     echo '<br>Suche nach b@ ergibt: ' . strstr($string, 'b@') . '</p>';
 
     echo '<p>Suche nach b@ ergibt: ' . stristr($string, 'b@') . '</p>';
 
     /* Finde ein Zeichen */
-    echo '<p>strchr():<br>Suche nach i ergibt: ' . strchr($string, 'i');
+    echo '<p><code>strchr()</code>:<br>Suche nach i ergibt: ' . strchr($string, 'i');
     echo '<br>Suche nach I ergibt: ' . strchr($string, 'I');
 
     echo '<br>stristr(): Suche nach I ergibt: ' . stristr($string, 'I');
@@ -164,7 +164,7 @@
     echo "<p>Der Buchstabe 'e' kommt in $string2 " . substr_count($string2, 'e') . " mal vor.</p>";
 
     /* Zeichenketten wiederholen */
-    echo '<p>' . str_repeat('-', 80) . '</p>';
+    echo '<p>' . str_repeat('-', 8) . '</p>';
 
     /* Leerraum oder andere Zeichen entfernen
     folgende Zeichen werden entfernt:
