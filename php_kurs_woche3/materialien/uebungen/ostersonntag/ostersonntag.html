@@ -1,0 +1,36 @@
+<!-- Startpunkt der Anwendung -->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+   <meta charset="utf-8">
+   <title>Ostersonntag, Eingabe</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../../../../php_kurs_woche2/materialien/style/style.css">
+   <style>
+      .row {display: flex; justify-content: space-between;}
+   </style>
+</head>
+
+<body>
+   <header>
+      <h1>Ostersonntag</h1>
+   </header><main class="container">
+      
+      <p>Bitte geben Sie zwei Jahreszahlen ein<br>
+         und senden Sie das Formular ab:</p>
+      <!-- Zwei Eingabefelder -->
+      <form action="ostersonntag.php" method="post">
+         <div class="row">
+            <p><input name="anfang"> Erste Jahreszahl</p>
+            <p><input name="ende"> Zweite Jahreszahl</p>
+         </div>
+         <div class="row">
+            <button type="submit">Ostersonntag bestimmen</button>
+            <button type="reset">Abbrechen</button>
+         </div>
+      </form>
+   </main>
+</body>
+
+</html>
