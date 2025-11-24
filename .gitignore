@@ -1,4 +1,5 @@
 config/
+kurs/
 vendor/
 */vendor/
 */.env
