@@ -3,6 +3,62 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors',true);
 
+$errors = array();
+$spamcheck = false;
+
+// Prüfen ob das Formular gesemdet wurde
+if(isset($_POST['submit'])) {
+
+	// Spamcheck
+	if(!empty($_POST['repeat_email']) || isset($_POST['terms'])) {
+		$errors[] = 'Zusatzfelder wurden ausgefüllt, wir vermuten Spam und brechen hier ab.';
+	} else {
+		$spamcheck = true;
+	}
+}
+
+// Eingaben validieren
+if($spamcheck === true) {
+
+	if(empty($_POST['name'])) {
+		// Wenn Name leer
+		$errors[] = 'Bitte geben Sie Ihren Namen an!';
+	}
+
+	if(!empty($_POST['phone']) && is_numeric($_POST['phone']) === false) {
+		// Wenn das Feld nicht leer ist, auf Ziffern prüfen
+		$errors[] = 'Die Telefonnummer bitte nur mit Ziffern angeben!';
+	}
+
+	if(empty($_POST['email'])) {
+		// Wenn das Email-Feld leer ist
+		$errors[] = 'Bitte eine E-Mail-Adresse angeben!';
+	} elseif(filter_vars($_POST['email'], FILTER_VALIDATE_EMAIL === false)) {
+		// Wenn die E-Mail-Syntax nicht korrekt ist
+		$errors[] = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
+	}
+
+	if(!empty($_POST['url']) && filter_var($_POST['url'], FILTER_VALIDATE_URL) === false) {
+		// Wenn das Feld nicht leer ist, prüfen wir auf korrekte URL-Systax
+		$errors[] = 'Bitte geben Sie eine gültige URL ein (inkl. https://)!';
+	}
+
+	if(!empty($_POST['plz']) && !preg_match("/^[0-9]{5}$/", $_POST['plz'])) {
+		$errors[] = 'Bitte geben Sie eine gültige PLZ ein!';
+	}
+
+	if(empty($_POST['message'])) {
+		// Wenn das Nachrichten-Feld leer ist
+		$errors[] = 'Bitte geben Sie Ihre Nachricht ein!';
+	}
+
+	if(!isset($_POST['gender'])) {
+		// Wenn der Spamcheck nicht markiert wurde
+		$errors[] = 'Bitte bestätigen Sie den Spamcheck!';
+	}
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -13,7 +69,10 @@ ini_set('display_errors',true);
 		
 	<link rel="stylesheet" href="css/style.css">
 	<script>
-		
+		window.addEventListener("DOMContentLoaded", _=>{
+			const terms = document.querySelector(".terms");
+			terms.innerHTML += '<input type="text" name="repeat_email">'; 
+		});
 	</script> 
 	<style>
 		/*Demo Formular Styles*/
@@ -36,7 +95,22 @@ ini_set('display_errors',true);
 		<h1>Formular-Validierung - Honeypot</h1>
 	</header>
 	<main class="container">
-				
+		<?php if(isset($_POST['submit'])): ?>
+			<?php if(!empty($errors) || $spamcheck === false): ?>
+				<div class="bad">
+					<strong>Bitte prüfen Sie Ihre Angaben!</strong><br>
+					<ul>
+						<li>
+							<?= implode('</li><li>', $errors); ?>
+						</li>
+					</ul>
+				</div>
+			<?php else: ?>
+				<div class="good">
+					<p>Alles richtig gemacht 👍.</p>
+				</div>
+			<?php endif; ?>
+		<?php endif; ?>
 		<form id="phpform" method="post" action="basic-form.php">
 	
 			<p>
